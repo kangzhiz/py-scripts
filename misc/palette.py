@@ -46,18 +46,18 @@ def print_palette(text: str, bold: bool = True) -> None:
         'white': 37
     }
 
-    table = Table(box = None)
+    table = Table(box=None)
 
-    table.add_column('', justify = 'right')
+    table.add_column('', justify='right')
 
     for c, v in colors.items():
-        table.add_column(f'{v + 10}m', justify = 'center', style = f'default on {c}')
+        table.add_column(f'{v + 10}m', justify='center', style=f'default on {c}')
 
     for c, v in colors.items():
         table.add_row(*get_row_args(len(colors), c, v, text))
 
         if bold:
-            table.add_row(*get_row_args(len(colors), c, v, text, bold = True))
+            table.add_row(*get_row_args(len(colors), c, v, text, bold=True))
 
     print()
     console = Console()
@@ -68,23 +68,22 @@ def print_palette(text: str, bold: bool = True) -> None:
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description = 'Display terminal color scheme.')
+    parser = argparse.ArgumentParser(description='Display terminal color scheme.')
 
     parser.add_argument(
         '-b',
-        dest = 'bold',
-        action = 'store_true',
-        help = 'Include bold text (default: False)'
+        dest='bold',
+        action='store_true',
+        help='Include bold text (default: False)'
     )
 
     parser.add_argument(
         '-t',
-        dest = 'text',
-        default = 'xYz',
-        help = 'Use custom text instead of default (default: xYz)'
+        dest='text',
+        default='xYz',
+        help='Use custom text instead of default (default: xYz)'
     )
 
     args = parser.parse_args()
 
-    print_palette(args.text, bold = args.bold)
-
+    print_palette(args.text, bold=args.bold)

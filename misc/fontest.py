@@ -29,13 +29,13 @@ def display_text(italic: bool = False) -> None:
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description = 'Display a block of text to test monospaced fonts.')
+    parser = argparse.ArgumentParser(description='Display a block of text to test monospaced fonts.')
 
     parser.add_argument(
         '-i',
-        dest = 'italic',
-        action = 'store_true',
-        help = 'Print text in italics (default: False)'
+        dest='italic',
+        action='store_true',
+        help='Print text in italics (default: False)'
     )
 
     args = parser.parse_args()
